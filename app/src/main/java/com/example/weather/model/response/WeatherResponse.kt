@@ -1,12 +1,12 @@
-package com.example.weather.model
+package com.example.weather.model.response
 
-import com.google.gson.annotations.SerializedName
+import com.example.weather.model.*
 
-data class WeatherModel(
+data class WeatherResponse(
     val base: String,
-    val clouds: Clouds,
+    val clouds: CloudsResponse,
     val cod: Int,
-    val coord: Coord,
+    val coord: CoordResponse,
     val dt: Int,
     val id: Int,
     val main: Main,
