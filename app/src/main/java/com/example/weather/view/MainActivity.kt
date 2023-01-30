@@ -2,17 +2,14 @@ package com.example.weather.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import com.bumptech.glide.Glide
-import com.example.weather.R
 import com.example.weather.databinding.ActivityMainBinding
 import com.example.weather.extensions.gone
 import com.example.weather.extensions.loadImage
 import com.example.weather.extensions.visible
 import com.example.weather.viewmodel.MainActivityViewModel
-import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         imageLayout.visibility = View.GONE
         errorText.visibility = View.GONE*/
 
-        searchButton.setOnClickListener {
+        binding.searchButton.setOnClickListener {
             val cityName = binding.cityName.text.toString()
             viewModel.getWeatherByCity(cityName.toLowerCase())
             //val hold : MainActivityViewModel by viewModels() // Todo: ViewModel global olarak tanimlanmali.
@@ -52,12 +49,12 @@ class MainActivity : AppCompatActivity() {
 
                 // Todo: Glide icin imageview'e extension yazilabilir.
 
-                binding.image.loadImage("https://openweathermap.org/img/wn/" + indicator.weather[0].icon + "@2x.png")
+                binding.image.loadImage("https://openweathermap.org/img/wn/" + indicator.weatherNeedResponse[0].icon + "@2x.png")
                 /*Glide.with(this)
                     .load("https://openweathermap.org/img/wn/" + indicator.weather[0].icon + "@2x.png")
                     .into(image)
                  */
-                binding.degree.text = indicator.main.temp.toString() + "°C"
+                binding.degree.text = indicator.mainResponse.temp.toString() + "°C"
 
             }
 

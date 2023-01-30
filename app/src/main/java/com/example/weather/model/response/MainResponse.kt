@@ -1,6 +1,6 @@
-package com.example.weather.model
+package com.example.weather.model.response
 
-data class Main(
+data class MainResponse(
     val feels_like: Double,
     val grnd_level: Int,
     val humidity: Int,

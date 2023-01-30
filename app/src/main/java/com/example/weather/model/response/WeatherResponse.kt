@@ -1,7 +1,5 @@
 package com.example.weather.model.response
 
-import com.example.weather.model.*
-
 data class WeatherResponse(
     val base: String,
     val clouds: CloudsResponse,
@@ -9,13 +7,13 @@ data class WeatherResponse(
     val coord: CoordResponse,
     val dt: Int,
     val id: Int,
-    val main: Main,
+    val mainResponse: MainResponse,
     val name: String,
-    val snow: Snow,
-    val sys: Sys,
+    val snowResponse: SnowResponse,
+    val sysResponse: SysResponse,
     val timezone: Int,
     val visibility: Int,
-    val weather: List<Weather>,
-    val wind: Wind
+    val weatherNeedResponse: List<WeatherNeedResponse>,
+    val windResponse: WindResponse
 
 )
