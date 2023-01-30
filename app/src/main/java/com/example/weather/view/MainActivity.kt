@@ -8,6 +8,7 @@ import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.example.weather.R
 import com.example.weather.extensions.gone
+import com.example.weather.extensions.loadImage
 import com.example.weather.extensions.visible
 import com.example.weather.viewmodel.MainActivityViewModel
 import kotlinx.android.synthetic.main.activity_main.*
@@ -48,10 +49,12 @@ class MainActivity : AppCompatActivity() {
                 cityText.text = indicator.name.toString()
 
                 // Todo: Glide icin imageview'e extension yazilabilir.
-                Glide.with(this)
+
+                image.loadImage("https://openweathermap.org/img/wn/" + indicator.weather[0].icon + "@2x.png")
+                /*Glide.with(this)
                     .load("https://openweathermap.org/img/wn/" + indicator.weather[0].icon + "@2x.png")
                     .into(image)
-
+                 */
                 degree.text = indicator.main.temp.toString() + "°C"
 
             }
