@@ -9,7 +9,7 @@ import com.example.weather.extensions.gone
 import com.example.weather.extensions.loadImage
 import com.example.weather.extensions.visible
 import com.example.weather.viewmodel.MainActivityViewModel
-import kotlinx.android.synthetic.main.activity_main.*
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -22,18 +22,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Todo: Xml'de default olarak asagidaki componentlerin visibility'leri gone yapilirsa asagidaki koda ihtiyac kalmayacak.
-        /*textLayout.visibility = View.GONE
-        imageLayout.visibility = View.GONE
-        errorText.visibility = View.GONE*/
 
-        searchButton.setOnClickListener {
+        binding.searchButton.setOnClickListener {
             val cityName = binding.cityName.text.toString()
             viewModel.getWeatherByCity(cityName.toLowerCase())
-            //val hold : MainActivityViewModel by viewModels() // Todo: ViewModel global olarak tanimlanmali.
-            //this.vm = hold // Todo: Global olarak viewModel degiskeni tanimlandiginda hold'a ihtiyac kalmayacak.
-            //hold.refreshData(city_name.toLowerCase()) // Todo: refreshData ismi degistirilmeli.
-            //getLiveData() // Todo: Bu methodun ismi degistirilmeli ve onCreate içine alınmalı.
         }
 
         observeLiveData()
@@ -42,19 +34,12 @@ class MainActivity : AppCompatActivity() {
     private fun observeWeather() {
         viewModel.weather.observe(this, Observer{ indicator ->
             indicator?.let {
-                // Todo: asagidakilar icin extension yazilabilir.
                 binding.textLayout.visible()
                 binding.imageLayout.visible()
                 binding.errorText.gone()
                 binding.cityText.text = indicator.name.toString()
 
-                // Todo: Glide icin imageview'e extension yazilabilir.
-
-               binding.image.loadImage("https://openweathermap.org/img/wn/" + indicator.weather[0].icon + "@2x.png")
-                /*Glide.with(this)
-                    .load("https://openweathermap.org/img/wn/" + indicator.weather[0].icon + "@2x.png")
-                    .into(image)
-                 */
+                binding.image.loadImage("https://openweathermap.org/img/wn/" + indicator.weather[0].icon + "@2x.png")
                 binding.degree.text = indicator.main.temp.toString() + "°C"
 
             }
@@ -66,11 +51,9 @@ class MainActivity : AppCompatActivity() {
         viewModel.error.observe(this, Observer { indicator->
             indicator?.let{
                 if(indicator){
-                    // Todo: asagidakilar icin extension yazilabilir.
                     binding.errorText.visible()
                     binding.textLayout.gone()
                     binding.imageLayout.gone()
-
                 }else {
                     binding.errorText.gone()
 

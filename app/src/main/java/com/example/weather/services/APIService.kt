@@ -1,6 +1,6 @@
 package com.example.weather.services
 
-import com.example.weather.model.WeatherResponse
+import com.example.weather.model.response.WeatherResponse
 import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory

@@ -1,4 +1,4 @@
-package com.example.weather.model
+package com.example.weather.model.response
 
 data class MainResponse(
     val feels_like: Double,

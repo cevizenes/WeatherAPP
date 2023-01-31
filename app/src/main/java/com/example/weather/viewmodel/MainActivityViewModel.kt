@@ -2,7 +2,7 @@ package com.example.weather.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.weather.model.WeatherResponse
+import com.example.weather.model.response.WeatherResponse
 import com.example.weather.services.APIService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -10,7 +10,7 @@ import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 
 class MainActivityViewModel:ViewModel() {
-    // Todo: Datas ne datasi iceriyor? isim gozden gecirilmeli.
+
     val weather = MutableLiveData<WeatherResponse>()
     val error = MutableLiveData<Boolean>()
 
