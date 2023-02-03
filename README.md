@@ -1,6 +1,5 @@
 Used Technologies
-
-  -> MVVM
-  -> Retrofit
-  -> RxJava
-  -> Glide
+-> MVVM
+-> Retrofit
+-> RxJava
+-> Glide
