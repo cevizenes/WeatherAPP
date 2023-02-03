@@ -1,5 +1,8 @@
-Used Technologies
--> MVVM
--> Retrofit
--> RxJava
--> Glide
+Tech Stack
+--
+* Basic MVVM Architecture
+* Retrofit
+* RxJava
+* View Binding
+* Live Data
+* Glide
